@@ -8,8 +8,8 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
+import { accessInviteLinkRoute } from './routes/access-invite-link'
 import { subscriberToEventRoute } from './routes/subscribe-to-event-route'
-
 
 export const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -21,14 +21,15 @@ app.register(fastifySwagger, {
   openapi: {
     info: {
       title: 'NLW Connect',
-      version: '0.0.1'
-    }
+      version: '0.0.1',
+    },
   },
-  transform: jsonSchemaTransform
+  transform: jsonSchemaTransform,
 })
 
 app.register(fastifySwaggerUi, {
-  routePrefix: '/docs'
+  routePrefix: '/docs',
 })
 
 app.register(subscriberToEventRoute)
+app.register(accessInviteLinkRoute)
