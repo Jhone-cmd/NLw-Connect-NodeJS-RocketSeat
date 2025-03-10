@@ -13,6 +13,7 @@ import { getRankingRoute } from './routes/get-ranking-route'
 import { getSubscriberInviteClicksRoute } from './routes/get-subscriber-invite-clicks-route'
 import { getSubscriberInvitesCountRoute } from './routes/get-subscriber-invites-count-route'
 import { getSubscriberRankingPositionRoute } from './routes/get-subscriber-ranking-position-route'
+import { sendoMessageRoute } from './routes/send-message-route'
 import { subscriberToEventRoute } from './routes/subscribe-to-event-route'
 
 export const app = fastify().withTypeProvider<ZodTypeProvider>()
@@ -41,3 +42,4 @@ app.register(getSubscriberInviteClicksRoute)
 app.register(getSubscriberInvitesCountRoute)
 app.register(getSubscriberRankingPositionRoute)
 app.register(getRankingRoute)
+app.register(sendoMessageRoute)
